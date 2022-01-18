@@ -71,20 +71,24 @@
         }
         return (
             <div>
-                <label></label>
+                <div>
+                <label htmlFor="Kmile">Kmile</label>
                 <input 
                 value={invert2 ?  amount2*1000 : amount2}
                 type="number"
                 onChange={onChange}
                 disabled={invert2}
                 placeholer="KM"/>
-                <label></label>
+                </div>
+                <div>
+                <label htmlFor ="Miles">Miles</label>
                 <input 
                 value={invert2 ? amount2 : amount2/1000}
                 type="number"
                 disabled={!invert2}
                 onChange={onChange}
                 placeholer="Miles"/>
+                </div>
                 <button onClick={reset}>Reset</button>
                 <button onClick={onInvert}>Invert</button>
             </div>

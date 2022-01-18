@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <body> 
+<!--비어있는 div는 ReactDOM이 React Element를 가져다 놓을 곳 */-->
+      <div id="root"></div>
+  </body>
+  <script src = "https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  </script>
+<!-- html element를 html body에 붙일때 사용 -->
+  <script src = "https://unpkg.com/react@17.0.2/umd/react.development.js"></script> 
+  <script src = "https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type ="text/babel">
+  const root=document.getElementById("root")   
+        function Btn({text,fontSize=14}){
+            return 
+            <button
+            style={{
+                backgroundColor:"tomato",
+                color:"white",
+                padding:"10px 20px",
+                border:0,
+                borderRadius:10,
+                fontSize,
+            }}
+            >
+            {text}
+            </button>
+        }
+        const MemorizedBtn = React.memo(Btn)
+
+        Btn.prototype ={
+            text:PropTypes.string.isRequired,
+            fontSize:PropTypes.number
+        }
+
+        function App(){
+        const [value, setValue] = React.useState("Save Changes")
+        const changeValue = () => setValue("Revert Changes")
+
+        return (
+            <div>
+                    
+                <Btn text="Save Change" fontSize={18} />
+                <Btn text="{18}" fontSize="Continue"/>
+            </div>
+        )
+    }
+  
+    ReactDOM.render(<App / >, root)
+
+  </script> 
+  </html>
